@@ -90,14 +90,14 @@ namespace 'release' do
   desc 'Build the gem in ./build directory'
   task :build do
     sh 'bundle install'
-    sh 'mkdir -p ./build'
-    sh 'cd ./build && gem build ../html-hierarchy-extractor.gemspec'
+    sh 'gem build html-hierarchy-extractor.gemspec'
   end
   desc 'Push the gem to rubygems'
   task :push do
     load 'lib/version.rb'
     current_version = HTMLHierarchyExtractorVersion.to_s
-    sh "gem push ./build/html-hierarchy-extractor-#{current_version}.gem"
+    sh "gem push html-hierarchy-extractor-#{current_version}.gem"
+    sh "rm html-hierarchy-extractor-#{current_version}.gem"
   end
   desc 'Update master'
   task :update_master_from_develop do
