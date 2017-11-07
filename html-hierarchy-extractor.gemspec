@@ -3,16 +3,12 @@ require File.join(File.dirname(__FILE__), 'lib', 'version')
 Gem::Specification.new do |gem|
   # Required attributes
   gem.name = 'html-hierarchy-extractor'
-  gem.summary = 'Extract HTML hierarchy (headings and content) '\
-    'into a list of items'
+  gem.summary = '[⚠ DEPRECATED]: Use algolia_html_extractor instead.'
   gem.version = HTMLHierarchyExtractorVersion.to_s
 
   # Recommended attributes
   gem.authors = ['Tim Carry']
-  gem.description = 'Take any arbitrary HTML as input and extract its '\
-    'hierarchy as a list of items, including parents and contents. It is '\
-    'primarily intended to be used along with Algolia, to improve the '\
-    'relevance of searching into huge chunks of text'
+  gem.description = '[⚠ DEPRECATED]: Use algolia_html_extractor instead.'
   gem.email = 'tim@pixelastic.com'
   gem.homepage = 'https://github.com/pixelastic/html-hierarchy-extractor'
   gem.licenses = ['MIT']
@@ -40,4 +36,10 @@ Gem::Specification.new do |gem|
     'CONTRIBUTING.md',
     'LICENSE.txt',
   ]
+
+  gem.post_install_message = <<-MESSAGE
+  !    The 'html-hierarchy-extractor' gem has been deprecated and has been replaced by 'algolia_html_extractor'.
+  !    See: https://rubygems.org/gems/algolia_html_extractor
+  !    And: https://github.com/algolia/html_extractor
+  MESSAGE
 end

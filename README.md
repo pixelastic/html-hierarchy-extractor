@@ -1,11 +1,20 @@
 # html-hierarchy-extractor
 
+## ⚠ DEPRECATION NOTICE
+
+This gem has been deprecated in favor of [algolia_html_extractor][1]. No further
+development will be happening on that gem. The new gem took over where this one
+stopped.
+
+## Description
+
 This gems lets you extract the hierarchy of headings and content from any HTML
 page into an array of elements.
 
-Intended to be used with [Algolia][1] to improve relevance of search
+
+Intended to be used with [Algolia][2] to improve relevance of search
 results inside large HTML pages. The records created are compatible with the
-[DocSearch][2] format.
+[DocSearch][3] format.
 
 ## Installation
 
@@ -93,13 +102,13 @@ Each record has a `uuid` that uniquely identify it (computed by a hash of all
 the other values).
 
 It also contains the HTML tag name in `tag_name` (by default `<p>`
-paragraphs are extracted, but see the [settings][3] on how to change it).
+paragraphs are extracted, but see the [settings][4] on how to change it).
 
 `html` contains the whole `outerContent` of the element, including the wrapping
 tags and inner children. The `text` attribute contains the textual content,
 stripping out all HTML.
 
-`node` contains the [Nokogiri node][4] instance. The lib uses it internally to
+`node` contains the [Nokogiri node][5] instance. The lib uses it internally to
 extract all the relevant information but is also exposed if you want to process
 the node further.
 
@@ -109,7 +118,7 @@ Anchors are searched in `name` and `id` attributes of headings.
 
 `hierarchy` then contains a snapshot of the current heading hierarchy of the
 paragraph. The `lvlX` syntax is used to be compatible with the records
-[DocSearch][5] is using.
+[DocSearch][6] is using.
 
 The `weight` attribute is used to provide an easy way to rank two records
 relative to each other.
@@ -142,7 +151,7 @@ and generic bug reports.
 ## Bug Reports and feature requests
 
 For any bug or ideas of new features, please start by checking in the
-[issues](https://github.com/pixelastic/html-hierarchy-extractor/issues) tab if
+[issues][7] tab if
 it hasn't been discussed already. If not, feel free to open a new issue.
 
 ## Pull Requests
@@ -165,7 +174,7 @@ cp ./scripts/git_hooks/* ./.git/hooks
 This will add a `pre-commit` and `pre-push` scripts that will respectively check
 that all files are lint-free before committing, and pass all tests before
 pushing. If any of those two hooks give your errors, you should fix the code
-before commiting or pushing.
+before committing or pushing.
 
 Having those steps helps keeping the codebase clean as much as possible, and
 avoid polluting discussion in PR about style.
@@ -182,7 +191,7 @@ Rubocop, and the configuration can be found in `.rubocop.yml`.
 
 ## Test
 
-`rake test` will run all the tests. 
+`rake test` will run all the tests.
 
 `rake coverage` will do the same, but also adding the code coverage files to
 `./coverage`. This should be useful in a CI environment.
@@ -204,8 +213,10 @@ You should also run `rake gemspec` from the `html-hierarchy-extractor`
 repository the first time and if you added/deleted any file or dependency.
 
 
-[1]: https://www.algolia.com/
-[2]: https://community.algolia.com/docsearch/
-[3]: #Settings
-[4]: http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node
-[5]: https://community.algolia.com/docsearch/
+[1]: https://github.com/algolia/html-extractor
+[2]: https://www.algolia.com/
+[3]: https://community.algolia.com/docsearch/
+[4]: #Settings
+[5]: http://www.rubydoc.info/github/sparklemotion/nokogiri/Nokogiri/XML/Node
+[6]: https://community.algolia.com/docsearch/
+[7]: https://github.com/pixelastic/html-hierarchy-extractor/issues

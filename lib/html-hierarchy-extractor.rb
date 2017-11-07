@@ -10,6 +10,10 @@ class HTMLHierarchyExtractor
       css_selector: 'p'
     }
     @options = default_options.merge(options)
+
+    warn '[DEPRECATION] The gem html-hierarchy-extractor has been renamed '\
+         'to algolia_html_extractor and will no longer be supported. '\
+         'Please switch to algolia_html_extractor as soon as possible.'
   end
 
   # Returns the outer HTML of a given node
